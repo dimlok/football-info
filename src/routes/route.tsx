@@ -5,6 +5,7 @@ import {
 } from '@/mocks/competitions.mock'
 import { useAllCompetitions } from '@/services/football_data/football_data.hooks'
 import type { FootballDataCompetition } from '@/services/football_data/football_data.types'
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 
@@ -15,11 +16,25 @@ import { Link } from 'react-router-dom'
 export default function HomePage() {
 	const { t } = useTranslation()
 	const { data, isLoading, error } = useAllCompetitions()
+	const [showAllLeagues, setShowAllLeagues] = useState(false)
+	const [showAllCups, setShowAllCups] = useState(false)
 
 	// Fallback zu Mock Daten wenn API nicht verfügbar
-	const leagues = data?.competitions || getCompetitionsByType('LEAGUE')
-	const cups = data?.competitions.filter(c => c.type === 'CUP') || []
+	const allLeagues = data?.competitions || getCompetitionsByType('LEAGUE')
+	const allCups = data?.competitions.filter(c => c.type === 'CUP') || []
 	const topLeagues = getTopEuropeanLeagues()
+
+	// Erste Reihe: Mobile 1, Tablet 2, Medium 3, Desktop 4
+	const INITIAL_LEAGUES_COUNT = 4
+	const INITIAL_CUPS_COUNT = 4
+
+	const leagues = showAllLeagues
+		? allLeagues.filter(l => l.type === 'LEAGUE')
+		: allLeagues
+				.filter(l => l.type === 'LEAGUE')
+				.slice(0, INITIAL_LEAGUES_COUNT)
+
+	const cups = showAllCups ? allCups : allCups.slice(0, INITIAL_CUPS_COUNT)
 
 	if (isLoading) {
 		return (
@@ -35,7 +50,7 @@ export default function HomePage() {
 	return (
 		<div className='relative min-h-screen overflow-x-hidden bg-zinc-950'>
 			{/* Background Pattern */}
-			<div className='absolute inset-0 bg-[linear-gradient(to_right,#18181b_1px,transparent_1px),linear-gradient(to_bottom,#18181b_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]' />
+			<div className='absolute inset-0 bg-[linear-gradient(to_right,#18181b_1px,transparent_1px),linear-gradient(to_bottom,#18181b_1px,transparent_1px)] bg-size-[4rem_4rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]' />
 
 			{/* Content */}
 			<div className='relative z-10'>
@@ -108,16 +123,38 @@ export default function HomePage() {
 						</div>
 
 						<div className='grid w-full grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 md:grid-cols-3 lg:grid-cols-4'>
-							{leagues
-								.filter(l => l.type === 'LEAGUE')
-								.map(league => (
-									<LeagueCard key={league.id} competition={league} />
-								))}
+							{leagues.map(league => (
+								<LeagueCard key={league.id} competition={league} />
+							))}
 						</div>
+
+						{/* Show More Button */}
+						{allLeagues.filter(l => l.type === 'LEAGUE').length >
+							INITIAL_LEAGUES_COUNT && (
+							<div className='mt-6 flex justify-center'>
+								<button
+									onClick={() => setShowAllLeagues(!showAllLeagues)}
+									className='group flex items-center gap-2 rounded-xl border border-zinc-800 bg-zinc-900/50 px-6 py-3 font-semibold text-zinc-300 transition-all hover:border-blue-600 hover:bg-zinc-900 hover:text-white active:scale-95'
+								>
+									<span>
+										{showAllLeagues
+											? t('leagues.show_less')
+											: t('leagues.show_more')}
+									</span>
+									<span
+										className={`transition-transform ${
+											showAllLeagues ? 'rotate-180' : ''
+										}`}
+									>
+										↓
+									</span>
+								</button>
+							</div>
+						)}
 					</div>
 
 					{/* Cups & Tournaments */}
-					{cups.length > 0 && (
+					{allCups.length > 0 && (
 						<div className='mb-8 sm:mb-12'>
 							<div className='mb-4 flex items-center gap-2 sm:mb-6 sm:gap-3'>
 								<h2 className='whitespace-nowrap text-base font-bold sm:text-xl md:text-2xl'>
@@ -131,6 +168,29 @@ export default function HomePage() {
 									<LeagueCard key={cup.id} competition={cup} isCup />
 								))}
 							</div>
+
+							{/* Show More Button */}
+							{allCups.length > INITIAL_CUPS_COUNT && (
+								<div className='mt-6 flex justify-center'>
+									<button
+										onClick={() => setShowAllCups(!showAllCups)}
+										className='group flex items-center gap-2 rounded-xl border border-purple-800/50 bg-zinc-900/50 px-6 py-3 font-semibold text-zinc-300 transition-all hover:border-purple-600 hover:bg-zinc-900 hover:text-white active:scale-95'
+									>
+										<span>
+											{showAllCups
+												? t('leagues.show_less')
+												: t('leagues.show_more')}
+										</span>
+										<span
+											className={`transition-transform ${
+												showAllCups ? 'rotate-180' : ''
+											}`}
+										>
+											↓
+										</span>
+									</button>
+								</div>
+							)}
 						</div>
 					)}
 

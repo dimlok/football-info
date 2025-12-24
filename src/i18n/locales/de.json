@@ -66,6 +66,8 @@
 		"section_cups": "🏅 Cups & Turniere",
 		"season": "Saison {{year}}/{{nextYear}}",
 		"matchday": "Spieltag {{matchday}}",
+		"show_more": "Mehr anzeigen",
+		"show_less": "Weniger anzeigen",
 		"quick_links": {
 			"players_title": "Spieler",
 			"players_description": "Alle Fußballspieler durchsuchen",
