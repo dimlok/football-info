@@ -33,7 +33,7 @@ export default function HomePage() {
 	}
 
 	return (
-		<div className='relative min-h-screen bg-zinc-950'>
+		<div className='relative min-h-screen overflow-x-hidden bg-zinc-950'>
 			{/* Background Pattern */}
 			<div className='absolute inset-0 bg-[linear-gradient(to_right,#18181b_1px,transparent_1px),linear-gradient(to_bottom,#18181b_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]' />
 
@@ -41,14 +41,16 @@ export default function HomePage() {
 			<div className='relative z-10'>
 				{/* Navigation */}
 				<div className='border-b border-zinc-900 backdrop-blur-sm'>
-					<div className='mx-auto flex max-w-7xl items-center justify-between px-4 py-4'>
-						<div className='flex items-center gap-3'>
-							<div className='flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-blue-500 to-blue-600 font-bold text-white shadow-lg shadow-blue-500/50'>
+					<div className='mx-auto flex max-w-7xl items-center justify-between px-3 py-3 sm:px-4 sm:py-4'>
+						<div className='flex items-center gap-2 sm:gap-3'>
+							<div className='flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-blue-500 to-blue-600 text-xl font-bold text-white shadow-lg shadow-blue-500/50 sm:h-10 sm:w-10'>
 								⚽
 							</div>
 							<div>
-								<div className='text-lg font-bold'>{t('leagues.title')}</div>
-								<div className='text-xs text-zinc-500'>
+								<div className='text-sm font-bold sm:text-lg'>
+									{t('leagues.title')}
+								</div>
+								<div className='hidden text-xs text-zinc-500 sm:block'>
 									{t('leagues.competitions_count', {
 										count: data?.count || 13,
 									})}
@@ -60,15 +62,15 @@ export default function HomePage() {
 				</div>
 
 				{/* Main Content */}
-				<div className='mx-auto max-w-7xl px-4 py-12'>
+				<div className='mx-auto w-full max-w-7xl px-3 py-8 sm:px-4 sm:py-12'>
 					{/* Hero Section */}
-					<div className='mb-12 text-center'>
-						<h1 className='mb-4 text-5xl font-black uppercase tracking-tight sm:text-6xl'>
+					<div className='mb-8 text-center sm:mb-12'>
+						<h1 className='mb-3 text-2xl font-black uppercase tracking-tight sm:mb-4 sm:text-4xl md:text-5xl lg:text-6xl'>
 							<span className='bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent'>
 								{t('leagues.hero_title')}
 							</span>
 						</h1>
-						<p className='mx-auto max-w-2xl text-lg text-zinc-400'>
+						<p className='mx-auto max-w-2xl text-sm text-zinc-400 sm:text-base md:text-lg'>
 							{t('leagues.hero_subtitle')}
 						</p>
 					</div>
@@ -81,15 +83,15 @@ export default function HomePage() {
 					)}
 
 					{/* Top 5 European Leagues - Featured */}
-					<div className='mb-12'>
-						<div className='mb-6 flex items-center gap-3'>
-							<h2 className='text-2xl font-bold'>
+					<div className='mb-8 sm:mb-12'>
+						<div className='mb-4 flex items-center gap-2 sm:mb-6 sm:gap-3'>
+							<h2 className='whitespace-nowrap text-base font-bold sm:text-xl md:text-2xl'>
 								{t('leagues.section_top_leagues')}
 							</h2>
 							<div className='h-px flex-1 bg-gradient-to-r from-zinc-800 to-transparent' />
 						</div>
 
-						<div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-5'>
+						<div className='grid w-full grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 md:grid-cols-3 lg:grid-cols-5 lg:gap-6'>
 							{topLeagues.map(league => (
 								<LeagueCard key={league.id} competition={league} featured />
 							))}
@@ -97,15 +99,15 @@ export default function HomePage() {
 					</div>
 
 					{/* All Leagues */}
-					<div className='mb-12'>
-						<div className='mb-6 flex items-center gap-3'>
-							<h2 className='text-2xl font-bold'>
+					<div className='mb-8 sm:mb-12'>
+						<div className='mb-4 flex items-center gap-2 sm:mb-6 sm:gap-3'>
+							<h2 className='whitespace-nowrap text-base font-bold sm:text-xl md:text-2xl'>
 								{t('leagues.section_all_leagues')}
 							</h2>
 							<div className='h-px flex-1 bg-gradient-to-r from-zinc-800 to-transparent' />
 						</div>
 
-						<div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-4'>
+						<div className='grid w-full grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 md:grid-cols-3 lg:grid-cols-4'>
 							{leagues
 								.filter(l => l.type === 'LEAGUE')
 								.map(league => (
@@ -116,15 +118,15 @@ export default function HomePage() {
 
 					{/* Cups & Tournaments */}
 					{cups.length > 0 && (
-						<div className='mb-12'>
-							<div className='mb-6 flex items-center gap-3'>
-								<h2 className='text-2xl font-bold'>
+						<div className='mb-8 sm:mb-12'>
+							<div className='mb-4 flex items-center gap-2 sm:mb-6 sm:gap-3'>
+								<h2 className='whitespace-nowrap text-base font-bold sm:text-xl md:text-2xl'>
 									{t('leagues.section_cups')}
 								</h2>
 								<div className='h-px flex-1 bg-gradient-to-r from-zinc-800 to-transparent' />
 							</div>
 
-							<div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-4'>
+							<div className='grid w-full grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 md:grid-cols-3 lg:grid-cols-4'>
 								{cups.map(cup => (
 									<LeagueCard key={cup.id} competition={cup} isCup />
 								))}
@@ -133,42 +135,42 @@ export default function HomePage() {
 					)}
 
 					{/* Quick Links */}
-					<div className='mt-16 grid gap-4 sm:grid-cols-3'>
+					<div className='mt-12 grid w-full gap-3 sm:mt-16 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3'>
 						<Link
 							to='/players'
-							className='group rounded-2xl border border-zinc-800 bg-zinc-900/50 p-6 transition-all hover:border-blue-600 hover:bg-zinc-900'
+							className='group rounded-2xl border border-zinc-800 bg-zinc-900/50 p-5 transition-all hover:border-blue-600 hover:bg-zinc-900 active:scale-95 sm:p-6'
 						>
-							<div className='mb-2 text-4xl'>⚽</div>
-							<div className='mb-1 font-bold'>
+							<div className='mb-2 text-3xl sm:text-4xl'>⚽</div>
+							<div className='mb-1 text-base font-bold sm:text-lg'>
 								{t('leagues.quick_links.players_title')}
 							</div>
-							<div className='text-sm text-zinc-500'>
+							<div className='text-xs text-zinc-500 sm:text-sm'>
 								{t('leagues.quick_links.players_description')}
 							</div>
 						</Link>
 
 						<Link
 							to='/teams'
-							className='group rounded-2xl border border-zinc-800 bg-zinc-900/50 p-6 transition-all hover:border-yellow-600 hover:bg-zinc-900'
+							className='group rounded-2xl border border-zinc-800 bg-zinc-900/50 p-5 transition-all hover:border-yellow-600 hover:bg-zinc-900 active:scale-95 sm:p-6'
 						>
-							<div className='mb-2 text-4xl'>🏆</div>
-							<div className='mb-1 font-bold'>
+							<div className='mb-2 text-3xl sm:text-4xl'>🏆</div>
+							<div className='mb-1 text-base font-bold sm:text-lg'>
 								{t('leagues.quick_links.teams_title')}
 							</div>
-							<div className='text-sm text-zinc-500'>
+							<div className='text-xs text-zinc-500 sm:text-sm'>
 								{t('leagues.quick_links.teams_description')}
 							</div>
 						</Link>
 
 						<Link
 							to='/api-test'
-							className='group rounded-2xl border border-zinc-800 bg-zinc-900/50 p-6 transition-all hover:border-green-600 hover:bg-zinc-900'
+							className='group rounded-2xl border border-zinc-800 bg-zinc-900/50 p-5 transition-all hover:border-green-600 hover:bg-zinc-900 active:scale-95 sm:col-span-2 sm:p-6 lg:col-span-1'
 						>
-							<div className='mb-2 text-4xl'>🔌</div>
-							<div className='mb-1 font-bold'>
+							<div className='mb-2 text-3xl sm:text-4xl'>🔌</div>
+							<div className='mb-1 text-base font-bold sm:text-lg'>
 								{t('leagues.quick_links.api_test_title')}
 							</div>
-							<div className='text-sm text-zinc-500'>
+							<div className='text-xs text-zinc-500 sm:text-sm'>
 								{t('leagues.quick_links.api_test_description')}
 							</div>
 						</Link>
@@ -220,13 +222,13 @@ function LeagueCard({ competition, featured, isCup }: LeagueCardProps) {
 
 	return (
 		<div
-			className={`group relative overflow-hidden rounded-2xl border transition-all ${
+			className={`group relative w-full overflow-hidden rounded-xl border transition-all active:scale-95 sm:rounded-2xl ${
 				featured
 					? 'border-2 border-blue-800/50 bg-gradient-to-br from-blue-950/80 to-zinc-900 hover:border-blue-600 hover:shadow-2xl hover:shadow-blue-500/30'
 					: isCup
 					? 'border-purple-800/50 bg-gradient-to-br from-purple-950/50 to-zinc-900 hover:border-purple-600'
 					: 'border-zinc-800 bg-zinc-900/50 hover:border-zinc-700 hover:bg-zinc-900'
-			} p-6`}
+			} p-4 sm:p-6`}
 		>
 			{/* Hover Glow Effect */}
 			<div
@@ -241,11 +243,11 @@ function LeagueCard({ competition, featured, isCup }: LeagueCardProps) {
 
 			<div className='relative'>
 				{/* League Logo */}
-				<div className='mb-4 flex justify-center'>
+				<div className='mb-3 flex justify-center sm:mb-4'>
 					<img
 						src={competition.emblem}
 						alt={competition.name}
-						className='h-16 w-16 object-contain transition-transform group-hover:scale-110'
+						className='h-12 w-12 object-contain transition-transform group-hover:scale-110 sm:h-16 sm:w-16'
 						onError={e => {
 							e.currentTarget.style.display = 'none'
 						}}
@@ -254,34 +256,34 @@ function LeagueCard({ competition, featured, isCup }: LeagueCardProps) {
 
 				{/* League Name */}
 				<h3
-					className={`mb-2 text-center font-bold transition-colors group-hover:text-white ${
-						featured ? 'text-lg' : 'text-base'
+					className={`mb-2 break-words text-center font-bold transition-colors group-hover:text-white ${
+						featured ? 'text-sm sm:text-lg' : 'text-sm sm:text-base'
 					}`}
 				>
 					{competition.name}
 				</h3>
 
 				{/* Country Flag */}
-				<div className='mb-3 flex items-center justify-center gap-2 text-sm text-zinc-400'>
+				<div className='mb-2 flex items-center justify-center gap-1.5 text-xs text-zinc-400 sm:mb-3 sm:gap-2 sm:text-sm'>
 					{competition.area.flag && (
 						<img
 							src={competition.area.flag}
 							alt={competition.area.name}
-							className='h-4 w-6 object-cover'
+							className='h-3 w-5 object-cover sm:h-4 sm:w-6'
 							onError={e => {
 								e.currentTarget.style.display = 'none'
 							}}
 						/>
 					)}
-					<span>{competition.area.name}</span>
+					<span className='truncate'>{competition.area.name}</span>
 				</div>
 
 				{/* Info */}
-				<div className='space-y-2 text-sm'>
+				<div className='space-y-1.5 text-sm sm:space-y-2'>
 					{/* Type Badge */}
 					<div className='flex justify-center'>
 						<span
-							className={`inline-block rounded-full px-3 py-1 text-xs font-semibold ${
+							className={`inline-block rounded-full px-2.5 py-0.5 text-xs font-semibold sm:px-3 sm:py-1 ${
 								competition.type === 'LEAGUE'
 									? 'bg-blue-500/20 text-blue-400'
 									: 'bg-purple-500/20 text-purple-400'
