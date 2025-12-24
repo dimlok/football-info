@@ -1,0 +1,58 @@
+{
+	"home": {
+		"welcome_message": "Hi, I'll be showing football information here",
+		"tech_stack": "Stack: React + TypeScript + React Router + Tailwind. No backend (yet).",
+		"explore_title": "Explore",
+		"explore_subtitle": "Choose a section to explore",
+		"cards": {
+			"players_title": "Players",
+			"players_description": "Discover player profiles, statistics and more",
+			"teams_title": "Teams",
+			"teams_description": "Explore teams and their squads",
+			"view_all": "View all"
+		}
+	},
+	"navigation": {
+		"back_to_home": "Back to home",
+		"back_to_players": "Back to players",
+		"back_to_teams": "Back to teams"
+	},
+	"players": {
+		"page_title": "Players",
+		"page_subtitle": "Discover the best football players",
+		"player_not_found": "Player not found",
+		"positions": {
+			"goalkeeper": "Goalkeeper",
+			"defender": "Defender",
+			"midfielder": "Midfielder",
+			"forward": "Forward"
+		},
+		"details": {
+			"nationality": "Nationality",
+			"age": "Age",
+			"years": "years"
+		},
+		"stats": {
+			"title": "Statistics",
+			"goals": "Goals",
+			"assists": "Assists",
+			"matches": "Matches",
+			"yellow_cards": "Yellow Cards",
+			"red_cards": "Red Cards",
+			"goals_per_match": "Goals/Match"
+		}
+	},
+	"teams": {
+		"page_title": "Teams",
+		"page_subtitle": "Discover the best football teams",
+		"team_not_found": "Team not found",
+		"squad_title": "Squad",
+		"details": {
+			"founded": "Founded",
+			"city": "City",
+			"stadium": "Stadium",
+			"players": "Players"
+		}
+	}
+}
+

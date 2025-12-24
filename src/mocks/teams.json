@@ -1,0 +1,57 @@
+[
+	{
+		"id": "bayern",
+		"name": "FC Bayern München",
+		"country": "Germany",
+		"founded": 1900,
+		"logo": "🔴⚪",
+		"stadium": "Allianz Arena",
+		"city": "München"
+	},
+	{
+		"id": "real-madrid",
+		"name": "Real Madrid CF",
+		"country": "Spain",
+		"founded": 1902,
+		"logo": "⚪👑",
+		"stadium": "Santiago Bernabéu",
+		"city": "Madrid"
+	},
+	{
+		"id": "barcelona",
+		"name": "FC Barcelona",
+		"country": "Spain",
+		"founded": 1899,
+		"logo": "🔴🔵",
+		"stadium": "Camp Nou",
+		"city": "Barcelona"
+	},
+	{
+		"id": "manchester-united",
+		"name": "Manchester United",
+		"country": "England",
+		"founded": 1878,
+		"logo": "🔴⚫",
+		"stadium": "Old Trafford",
+		"city": "Manchester"
+	},
+	{
+		"id": "liverpool",
+		"name": "Liverpool FC",
+		"country": "England",
+		"founded": 1892,
+		"logo": "🔴",
+		"stadium": "Anfield",
+		"city": "Liverpool"
+	},
+	{
+		"id": "psg",
+		"name": "Paris Saint-Germain",
+		"country": "France",
+		"founded": 1970,
+		"logo": "🔵🔴",
+		"stadium": "Parc des Princes",
+		"city": "Paris"
+	}
+]
+

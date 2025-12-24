@@ -1,0 +1,351 @@
+[
+	{
+		"id": "kane",
+		"name": "Harry Kane",
+		"position": "forward",
+		"nationality": "England",
+		"age": 30,
+		"teamId": "bayern",
+		"photo": "⚽",
+		"number": 9,
+		"rating": 90,
+		"cardType": "gold",
+		"attributes": {
+			"pace": 70,
+			"shooting": 92,
+			"passing": 83,
+			"dribbling": 83,
+			"defending": 47,
+			"physical": 82
+		},
+		"weakFoot": 4,
+		"skillMoves": 4,
+		"stats": {
+			"goals": 36,
+			"assists": 12,
+			"matches": 42,
+			"yellowCards": 2,
+			"redCards": 0
+		}
+	},
+	{
+		"id": "musiala",
+		"name": "Jamal Musiala",
+		"position": "midfielder",
+		"nationality": "Germany",
+		"age": 21,
+		"teamId": "bayern",
+		"photo": "🌟",
+		"number": 42,
+		"rating": 87,
+		"cardType": "gold",
+		"attributes": {
+			"pace": 82,
+			"shooting": 80,
+			"passing": 84,
+			"dribbling": 90,
+			"defending": 49,
+			"physical": 68
+		},
+		"weakFoot": 4,
+		"skillMoves": 5,
+		"stats": {
+			"goals": 12,
+			"assists": 10,
+			"matches": 38,
+			"yellowCards": 3,
+			"redCards": 0
+		}
+	},
+	{
+		"id": "neuer",
+		"name": "Manuel Neuer",
+		"position": "goalkeeper",
+		"nationality": "Germany",
+		"age": 38,
+		"teamId": "bayern",
+		"photo": "🧤",
+		"number": 1,
+		"rating": 88,
+		"cardType": "gold",
+		"attributes": {
+			"pace": 42,
+			"shooting": 15,
+			"passing": 80,
+			"dribbling": 80,
+			"defending": 50,
+			"physical": 78
+		},
+		"weakFoot": 3,
+		"skillMoves": 1,
+		"stats": {
+			"goals": 0,
+			"assists": 0,
+			"matches": 35,
+			"yellowCards": 1,
+			"redCards": 0
+		}
+	},
+	{
+		"id": "bellingham",
+		"name": "Jude Bellingham",
+		"position": "midfielder",
+		"nationality": "England",
+		"age": 21,
+		"teamId": "real-madrid",
+		"photo": "💫",
+		"number": 5,
+		"rating": 90,
+		"cardType": "gold",
+		"attributes": {
+			"pace": 80,
+			"shooting": 85,
+			"passing": 82,
+			"dribbling": 85,
+			"defending": 78,
+			"physical": 85
+		},
+		"weakFoot": 4,
+		"skillMoves": 4,
+		"stats": {
+			"goals": 23,
+			"assists": 13,
+			"matches": 42,
+			"yellowCards": 8,
+			"redCards": 0
+		}
+	},
+	{
+		"id": "vinicius",
+		"name": "Vinícius Jr.",
+		"position": "forward",
+		"nationality": "Brazil",
+		"age": 24,
+		"teamId": "real-madrid",
+		"photo": "⚡",
+		"number": 7,
+		"rating": 91,
+		"cardType": "gold",
+		"attributes": {
+			"pace": 95,
+			"shooting": 83,
+			"passing": 79,
+			"dribbling": 92,
+			"defending": 29,
+			"physical": 68
+		},
+		"weakFoot": 3,
+		"skillMoves": 5,
+		"stats": {
+			"goals": 24,
+			"assists": 11,
+			"matches": 39,
+			"yellowCards": 5,
+			"redCards": 0
+		}
+	},
+	{
+		"id": "lewandowski",
+		"name": "Robert Lewandowski",
+		"position": "forward",
+		"nationality": "Poland",
+		"age": 35,
+		"teamId": "barcelona",
+		"photo": "🦅",
+		"number": 9,
+		"rating": 89,
+		"cardType": "gold",
+		"attributes": {
+			"pace": 78,
+			"shooting": 91,
+			"passing": 79,
+			"dribbling": 86,
+			"defending": 44,
+			"physical": 82
+		},
+		"weakFoot": 4,
+		"skillMoves": 4,
+		"stats": {
+			"goals": 26,
+			"assists": 8,
+			"matches": 36,
+			"yellowCards": 2,
+			"redCards": 0
+		}
+	},
+	{
+		"id": "pedri",
+		"name": "Pedri",
+		"position": "midfielder",
+		"nationality": "Spain",
+		"age": 21,
+		"teamId": "barcelona",
+		"photo": "🎯",
+		"number": 8,
+		"rating": 85,
+		"cardType": "gold",
+		"attributes": {
+			"pace": 72,
+			"shooting": 69,
+			"passing": 88,
+			"dribbling": 87,
+			"defending": 61,
+			"physical": 63
+		},
+		"weakFoot": 4,
+		"skillMoves": 4,
+		"stats": {
+			"goals": 5,
+			"assists": 8,
+			"matches": 32,
+			"yellowCards": 4,
+			"redCards": 0
+		}
+	},
+	{
+		"id": "salah",
+		"name": "Mohamed Salah",
+		"position": "forward",
+		"nationality": "Egypt",
+		"age": 32,
+		"teamId": "liverpool",
+		"photo": "👑",
+		"number": 11,
+		"rating": 89,
+		"cardType": "gold",
+		"attributes": {
+			"pace": 90,
+			"shooting": 87,
+			"passing": 81,
+			"dribbling": 90,
+			"defending": 45,
+			"physical": 75
+		},
+		"weakFoot": 3,
+		"skillMoves": 3,
+		"stats": {
+			"goals": 25,
+			"assists": 14,
+			"matches": 44,
+			"yellowCards": 3,
+			"redCards": 0
+		}
+	},
+	{
+		"id": "rashford",
+		"name": "Marcus Rashford",
+		"position": "forward",
+		"nationality": "England",
+		"age": 27,
+		"teamId": "manchester-united",
+		"photo": "🏃",
+		"number": 10,
+		"rating": 84,
+		"cardType": "gold",
+		"attributes": {
+			"pace": 93,
+			"shooting": 82,
+			"passing": 77,
+			"dribbling": 83,
+			"defending": 37,
+			"physical": 76
+		},
+		"weakFoot": 3,
+		"skillMoves": 4,
+		"stats": {
+			"goals": 8,
+			"assists": 6,
+			"matches": 33,
+			"yellowCards": 4,
+			"redCards": 0
+		}
+	},
+	{
+		"id": "mbappe",
+		"name": "Kylian Mbappé",
+		"position": "forward",
+		"nationality": "France",
+		"age": 25,
+		"teamId": "real-madrid",
+		"photo": "🚀",
+		"number": 9,
+		"rating": 92,
+		"cardType": "gold",
+		"attributes": {
+			"pace": 97,
+			"shooting": 89,
+			"passing": 80,
+			"dribbling": 92,
+			"defending": 36,
+			"physical": 77
+		},
+		"weakFoot": 4,
+		"skillMoves": 5,
+		"stats": {
+			"goals": 18,
+			"assists": 9,
+			"matches": 28,
+			"yellowCards": 2,
+			"redCards": 0
+		}
+	},
+	{
+		"id": "dembele",
+		"name": "Ousmane Dembélé",
+		"position": "forward",
+		"nationality": "France",
+		"age": 27,
+		"teamId": "psg",
+		"photo": "⚡",
+		"number": 10,
+		"rating": 85,
+		"cardType": "gold",
+		"attributes": {
+			"pace": 95,
+			"shooting": 78,
+			"passing": 82,
+			"dribbling": 89,
+			"defending": 32,
+			"physical": 64
+		},
+		"weakFoot": 5,
+		"skillMoves": 5,
+		"stats": {
+			"goals": 10,
+			"assists": 14,
+			"matches": 35,
+			"yellowCards": 6,
+			"redCards": 0
+		}
+	},
+	{
+		"id": "van-dijk",
+		"name": "Virgil van Dijk",
+		"position": "defender",
+		"nationality": "Netherlands",
+		"age": 33,
+		"teamId": "liverpool",
+		"photo": "🛡️",
+		"number": 4,
+		"rating": 89,
+		"cardType": "gold",
+		"attributes": {
+			"pace": 77,
+			"shooting": 60,
+			"passing": 71,
+			"dribbling": 72,
+			"defending": 92,
+			"physical": 86
+		},
+		"weakFoot": 3,
+		"skillMoves": 1,
+		"stats": {
+			"goals": 3,
+			"assists": 2,
+			"matches": 38,
+			"yellowCards": 5,
+			"redCards": 0
+		}
+	}
+]
+

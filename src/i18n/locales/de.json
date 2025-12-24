@@ -1,0 +1,58 @@
+{
+	"home": {
+		"welcome_message": "Hallo, hier werde ich Fußballinformationen anzeigen",
+		"tech_stack": "Stack: React + TypeScript + React Router + Tailwind. Kein Backend (noch).",
+		"explore_title": "Entdecken",
+		"explore_subtitle": "Wähle einen Bereich zum Erkunden",
+		"cards": {
+			"players_title": "Spieler",
+			"players_description": "Entdecke Spielerprofile, Statistiken und mehr",
+			"teams_title": "Mannschaften",
+			"teams_description": "Erkunde Mannschaften und ihre Kader",
+			"view_all": "Alle anzeigen"
+		}
+	},
+	"navigation": {
+		"back_to_home": "Zurück zur Startseite",
+		"back_to_players": "Zurück zu Spielern",
+		"back_to_teams": "Zurück zu Mannschaften"
+	},
+	"players": {
+		"page_title": "Spieler",
+		"page_subtitle": "Entdecke die besten Fußballspieler",
+		"player_not_found": "Spieler nicht gefunden",
+		"positions": {
+			"goalkeeper": "Torwart",
+			"defender": "Verteidiger",
+			"midfielder": "Mittelfeldspieler",
+			"forward": "Stürmer"
+		},
+		"details": {
+			"nationality": "Nationalität",
+			"age": "Alter",
+			"years": "Jahre"
+		},
+		"stats": {
+			"title": "Statistiken",
+			"goals": "Tore",
+			"assists": "Vorlagen",
+			"matches": "Spiele",
+			"yellow_cards": "Gelbe Karten",
+			"red_cards": "Rote Karten",
+			"goals_per_match": "Tore/Spiel"
+		}
+	},
+	"teams": {
+		"page_title": "Mannschaften",
+		"page_subtitle": "Entdecke die besten Fußballmannschaften",
+		"team_not_found": "Mannschaft nicht gefunden",
+		"squad_title": "Kader",
+		"details": {
+			"founded": "Gegründet",
+			"city": "Stadt",
+			"stadium": "Stadion",
+			"players": "Spieler"
+		}
+	}
+}
+

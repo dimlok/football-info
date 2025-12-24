@@ -1,0 +1,58 @@
+{
+	"home": {
+		"welcome_message": "Привет, я здесь буду показывать футбольную информацию",
+		"tech_stack": "Стек: React + TypeScript + React Router + Tailwind. Без бэкенда (пока).",
+		"explore_title": "Исследовать",
+		"explore_subtitle": "Выберите раздел для изучения",
+		"cards": {
+			"players_title": "Игроки",
+			"players_description": "Узнайте о профилях игроков, статистике и многом другом",
+			"teams_title": "Команды",
+			"teams_description": "Изучите команды и их составы",
+			"view_all": "Смотреть всё"
+		}
+	},
+	"navigation": {
+		"back_to_home": "Вернуться на главную",
+		"back_to_players": "Вернуться к игрокам",
+		"back_to_teams": "Вернуться к командам"
+	},
+	"players": {
+		"page_title": "Игроки",
+		"page_subtitle": "Узнайте о лучших футболистах",
+		"player_not_found": "Игрок не найден",
+		"positions": {
+			"goalkeeper": "Вратарь",
+			"defender": "Защитник",
+			"midfielder": "Полузащитник",
+			"forward": "Нападающий"
+		},
+		"details": {
+			"nationality": "Национальность",
+			"age": "Возраст",
+			"years": "лет"
+		},
+		"stats": {
+			"title": "Статистика",
+			"goals": "Голы",
+			"assists": "Передачи",
+			"matches": "Матчи",
+			"yellow_cards": "Жёлтые карточки",
+			"red_cards": "Красные карточки",
+			"goals_per_match": "Голов/Матч"
+		}
+	},
+	"teams": {
+		"page_title": "Команды",
+		"page_subtitle": "Узнайте о лучших футбольных командах",
+		"team_not_found": "Команда не найдена",
+		"squad_title": "Состав",
+		"details": {
+			"founded": "Основана",
+			"city": "Город",
+			"stadium": "Стадион",
+			"players": "Игроки"
+		}
+	}
+}
+
