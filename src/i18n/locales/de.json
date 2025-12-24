@@ -53,6 +53,27 @@
 			"stadium": "Stadion",
 			"players": "Spieler"
 		}
+	},
+	"leagues": {
+		"loading": "Lade Wettbewerbe...",
+		"title": "FUSSBALL LIGEN",
+		"competitions_count": "{{count}} Wettbewerbe",
+		"hero_title": "Fußball Ligen",
+		"hero_subtitle": "Entdecke die Top-Ligen und Wettbewerbe aus der ganzen Welt",
+		"api_error": "⚠️ API nicht erreichbar - Zeige Offline-Daten",
+		"section_top_leagues": "⭐ Top Europäische Ligen",
+		"section_all_leagues": "🏆 Alle Ligen",
+		"section_cups": "🏅 Cups & Turniere",
+		"season": "Saison {{year}}/{{nextYear}}",
+		"matchday": "Spieltag {{matchday}}",
+		"quick_links": {
+			"players_title": "Spieler",
+			"players_description": "Alle Fußballspieler durchsuchen",
+			"teams_title": "Mannschaften",
+			"teams_description": "Fußballvereine erkunden",
+			"api_test_title": "API Test",
+			"api_test_description": "Live-API-Daten testen"
+		}
 	}
 }
 

@@ -1,5 +1,5 @@
 import { queryClient } from '@/main'
-import { getPlayerById, getPlayers } from './player.service'
+import { getAllPlayers, getPlayerById } from './player.service'
 
 /**
  * 🔒 Player Loader Functions
@@ -15,7 +15,7 @@ import { getPlayerById, getPlayers } from './player.service'
  */
 export const loadPlayers = async () => {
 	try {
-		const data = await getPlayers()
+		const data = await getAllPlayers()
 		queryClient.setQueryData(['players'], data)
 		return data
 	} catch (error) {

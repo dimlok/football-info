@@ -26,7 +26,7 @@ export default function HomePage() {
 			<div className='flex min-h-screen items-center justify-center bg-zinc-950'>
 				<div className='text-center'>
 					<div className='mb-4 animate-pulse text-7xl'>⚽</div>
-					<div className='text-xl text-zinc-300'>Loading competitions...</div>
+					<div className='text-xl text-zinc-300'>{t('leagues.loading')}</div>
 				</div>
 			</div>
 		)
@@ -47,9 +47,11 @@ export default function HomePage() {
 								⚽
 							</div>
 							<div>
-								<div className='text-lg font-bold'>FOOTBALL LEAGUES</div>
+								<div className='text-lg font-bold'>{t('leagues.title')}</div>
 								<div className='text-xs text-zinc-500'>
-									{data?.count || 13} Competitions
+									{t('leagues.competitions_count', {
+										count: data?.count || 13,
+									})}
 								</div>
 							</div>
 						</div>
@@ -63,27 +65,27 @@ export default function HomePage() {
 					<div className='mb-12 text-center'>
 						<h1 className='mb-4 text-5xl font-black uppercase tracking-tight sm:text-6xl'>
 							<span className='bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent'>
-								Football Leagues
+								{t('leagues.hero_title')}
 							</span>
 						</h1>
 						<p className='mx-auto max-w-2xl text-lg text-zinc-400'>
-							Entdecke die Top-Ligen und Wettbewerbe aus der ganzen Welt
+							{t('leagues.hero_subtitle')}
 						</p>
 					</div>
 
 					{/* Error Message */}
 					{error && (
 						<div className='mb-8 rounded-2xl border border-yellow-800 bg-yellow-950/30 p-4 text-center'>
-							<div className='text-yellow-400'>
-								⚠️ API nicht erreichbar - Zeige Offline-Daten
-							</div>
+							<div className='text-yellow-400'>{t('leagues.api_error')}</div>
 						</div>
 					)}
 
 					{/* Top 5 European Leagues - Featured */}
 					<div className='mb-12'>
 						<div className='mb-6 flex items-center gap-3'>
-							<h2 className='text-2xl font-bold'>⭐ Top Europäische Ligen</h2>
+							<h2 className='text-2xl font-bold'>
+								{t('leagues.section_top_leagues')}
+							</h2>
 							<div className='h-px flex-1 bg-gradient-to-r from-zinc-800 to-transparent' />
 						</div>
 
@@ -97,7 +99,9 @@ export default function HomePage() {
 					{/* All Leagues */}
 					<div className='mb-12'>
 						<div className='mb-6 flex items-center gap-3'>
-							<h2 className='text-2xl font-bold'>🏆 Alle Ligen</h2>
+							<h2 className='text-2xl font-bold'>
+								{t('leagues.section_all_leagues')}
+							</h2>
 							<div className='h-px flex-1 bg-gradient-to-r from-zinc-800 to-transparent' />
 						</div>
 
@@ -114,7 +118,9 @@ export default function HomePage() {
 					{cups.length > 0 && (
 						<div className='mb-12'>
 							<div className='mb-6 flex items-center gap-3'>
-								<h2 className='text-2xl font-bold'>🏅 Cups & Turniere</h2>
+								<h2 className='text-2xl font-bold'>
+									{t('leagues.section_cups')}
+								</h2>
 								<div className='h-px flex-1 bg-gradient-to-r from-zinc-800 to-transparent' />
 							</div>
 
@@ -133,9 +139,11 @@ export default function HomePage() {
 							className='group rounded-2xl border border-zinc-800 bg-zinc-900/50 p-6 transition-all hover:border-blue-600 hover:bg-zinc-900'
 						>
 							<div className='mb-2 text-4xl'>⚽</div>
-							<div className='mb-1 font-bold'>Players</div>
+							<div className='mb-1 font-bold'>
+								{t('leagues.quick_links.players_title')}
+							</div>
 							<div className='text-sm text-zinc-500'>
-								Browse all football players
+								{t('leagues.quick_links.players_description')}
 							</div>
 						</Link>
 
@@ -144,9 +152,11 @@ export default function HomePage() {
 							className='group rounded-2xl border border-zinc-800 bg-zinc-900/50 p-6 transition-all hover:border-yellow-600 hover:bg-zinc-900'
 						>
 							<div className='mb-2 text-4xl'>🏆</div>
-							<div className='mb-1 font-bold'>Teams</div>
+							<div className='mb-1 font-bold'>
+								{t('leagues.quick_links.teams_title')}
+							</div>
 							<div className='text-sm text-zinc-500'>
-								Explore football clubs
+								{t('leagues.quick_links.teams_description')}
 							</div>
 						</Link>
 
@@ -155,12 +165,42 @@ export default function HomePage() {
 							className='group rounded-2xl border border-zinc-800 bg-zinc-900/50 p-6 transition-all hover:border-green-600 hover:bg-zinc-900'
 						>
 							<div className='mb-2 text-4xl'>🔌</div>
-							<div className='mb-1 font-bold'>API Test</div>
-							<div className='text-sm text-zinc-500'>Test live API data</div>
+							<div className='mb-1 font-bold'>
+								{t('leagues.quick_links.api_test_title')}
+							</div>
+							<div className='text-sm text-zinc-500'>
+								{t('leagues.quick_links.api_test_description')}
+							</div>
 						</Link>
 					</div>
 				</div>
 			</div>
+		</div>
+	)
+}
+
+/**
+ * Season Info Component
+ */
+type SeasonInfoProps = {
+	currentYear: number
+	nextYear: number
+	currentMatchday: number
+}
+
+function SeasonInfo({
+	currentYear,
+	nextYear,
+	currentMatchday,
+}: SeasonInfoProps) {
+	const { t } = useTranslation()
+
+	return (
+		<div className='text-center text-xs text-zinc-500'>
+			{t('leagues.season', { year: currentYear, nextYear })}
+			{currentMatchday > 0 && (
+				<> • {t('leagues.matchday', { matchday: currentMatchday })}</>
+			)}
 		</div>
 	)
 }
@@ -253,12 +293,11 @@ function LeagueCard({ competition, featured, isCup }: LeagueCardProps) {
 
 					{/* Current Season */}
 					{competition.currentSeason && (
-						<div className='text-center text-xs text-zinc-500'>
-							Saison {currentYear}/{nextYear}
-							{competition.currentSeason.currentMatchday > 0 && (
-								<> • Spieltag {competition.currentSeason.currentMatchday}</>
-							)}
-						</div>
+						<SeasonInfo
+							currentYear={currentYear}
+							nextYear={nextYear}
+							currentMatchday={competition.currentSeason.currentMatchday}
+						/>
 					)}
 
 					{/* Plan Badge (für Free/Paid Tier) */}
