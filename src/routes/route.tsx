@@ -26,7 +26,7 @@ export default function HomePage() {
 			<div className='flex min-h-screen items-center justify-center bg-zinc-950'>
 				<div className='text-center'>
 					<div className='mb-4 animate-pulse text-7xl'>⚽</div>
-					<div className='text-xl text-zinc-300'>Loading competitions...</div>
+					<div className='text-xl text-zinc-300'>{t('leagues.loading')}</div>
 				</div>
 			</div>
 		)
