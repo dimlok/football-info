@@ -18,26 +18,20 @@ const API_KEY = import.meta.env.VITE_FOOTBALL_DATA_API_KEY
 const isDevelopment = import.meta.env.DEV
 
 // In Development: Vite Proxy nutzen (kein CORS!)
-// In Production: Echte API URL (benötigt Backend)
-const BASE_URL = isDevelopment
-	? '/api/football-data'
-	: import.meta.env.VITE_FOOTBALL_DATA_BASE_URL ||
-	  'https://api.football-data.org/v4'
+// In Production: Vercel Serverless Function als Proxy
+const BASE_URL = isDevelopment ? '/api/football-data' : '/api/football-data'
 
-if (!API_KEY) {
+if (!API_KEY && isDevelopment) {
 	console.warn(
 		'⚠️ VITE_FOOTBALL_DATA_API_KEY fehlt in .env.local!\n' +
 			'API Requests werden fehlschlagen.'
 	)
 }
 
-// In Development sendet Vite Proxy den API Key automatisch
-// In Production müssen wir ihn hier hinzufügen
-const headers: Record<string, string> = isDevelopment
-	? {}
-	: {
-			'X-Auth-Token': API_KEY || '',
-	  }
+// Headers sind leer, weil:
+// - In Development: Vite Proxy fügt API Key hinzu
+// - In Production: Vercel Serverless Function fügt API Key hinzu
+const headers: Record<string, string> = {}
 
 /**
  * Rate Limit Info aus Response Headers extrahieren
@@ -79,8 +73,14 @@ const logRateLimit = (response: Response) => {
 /**
  * Fetch Helper mit besseren Error Messages & Rate Limit Tracking
  */
-const fetchData = async <T>(url: string): Promise<T> => {
+const fetchData = async <T>(endpoint: string): Promise<T> => {
 	try {
+		// In Production: ?path= Parameter für Vercel Function
+		// In Development: Direkt den Endpoint nutzen (Vite Proxy)
+		const url = isDevelopment
+			? `${BASE_URL}${endpoint}`
+			: `${BASE_URL}?path=${encodeURIComponent(endpoint)}`
+
 		const response = await fetch(url, { headers })
 
 		// Rate Limit Info loggen (vor Error Checks)
@@ -136,7 +136,7 @@ const fetchData = async <T>(url: string): Promise<T> => {
 export const getTeam = async (
 	teamId: number
 ): Promise<FootballDataTeamResponse> => {
-	return fetchData<FootballDataTeamResponse>(`${BASE_URL}/teams/${teamId}`)
+	return fetchData<FootballDataTeamResponse>(`/teams/${teamId}`)
 }
 
 /**
@@ -145,7 +145,7 @@ export const getTeam = async (
 export const getPerson = async (
 	personId: number
 ): Promise<FootballDataPerson> => {
-	return fetchData<FootballDataPerson>(`${BASE_URL}/persons/${personId}`)
+	return fetchData<FootballDataPerson>(`/persons/${personId}`)
 }
 
 /**
@@ -159,7 +159,7 @@ export const getPerson = async (
  * - Champions League: CL (2001)
  */
 export const getCompetitionTeams = async (competitionCode: string) => {
-	return fetchData(`${BASE_URL}/competitions/${competitionCode}/teams`)
+	return fetchData(`/competitions/${competitionCode}/teams`)
 }
 
 /**
@@ -167,9 +167,7 @@ export const getCompetitionTeams = async (competitionCode: string) => {
  */
 export const getAllCompetitions =
 	async (): Promise<FootballDataCompetitionsResponse> => {
-		return fetchData<FootballDataCompetitionsResponse>(
-			`${BASE_URL}/competitions`
-		)
+		return fetchData<FootballDataCompetitionsResponse>(`/competitions`)
 	}
 
 /**
@@ -177,7 +175,7 @@ export const getAllCompetitions =
  */
 export const testConnection = async (): Promise<boolean> => {
 	try {
-		await fetchData(`${BASE_URL}/competitions`)
+		await fetchData(`/competitions`)
 		return true
 	} catch (error) {
 		console.error('❌ API Connection failed:', error)
