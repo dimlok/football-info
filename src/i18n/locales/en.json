@@ -66,6 +66,8 @@
 		"section_cups": "🏅 Cups & Tournaments",
 		"season": "Season {{year}}/{{nextYear}}",
 		"matchday": "Matchday {{matchday}}",
+		"show_more": "Show more",
+		"show_less": "Show less",
 		"quick_links": {
 			"players_title": "Players",
 			"players_description": "Browse all football players",
@@ -73,6 +75,44 @@
 			"teams_description": "Explore football clubs",
 			"api_test_title": "API Test",
 			"api_test_description": "Test live API data"
+		}
+	},
+	"matches": {
+		"today_title": "Today's Matches",
+		"loading": "Loading matches...",
+		"error": "Could not load matches",
+		"no_matches": "No matches today",
+		"table": {
+			"time": "Time",
+			"home_team": "Home Team",
+			"result": "Result",
+			"away_team": "Away Team",
+			"status": "Status"
+		},
+		"status": {
+			"scheduled": "Scheduled",
+			"live": "LIVE",
+			"paused": "Half Time",
+			"finished": "Finished",
+			"postponed": "Postponed",
+			"cancelled": "Cancelled"
+		}
+	},
+	"settings": {
+		"title": "Settings",
+		"open": "Open settings",
+		"close": "Close",
+		"selected": "Selected",
+		"info": "Your settings are saved automatically",
+		"theme": {
+			"title": "Theme Mode",
+			"light": "Light",
+			"dark": "Dark",
+			"system": "System",
+			"current": "Current"
+		},
+		"language": {
+			"title": "Language"
 		}
 	}
 }

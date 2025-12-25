@@ -1,4 +1,4 @@
-.PHONY: help dev build preview lint clean install
+.PHONY: help dev build preview lint tsc clean install
 
 # Default target when just running 'make'
 help:
@@ -8,6 +8,7 @@ help:
 	@echo "  make build     - Build for production"
 	@echo "  make preview   - Preview production build"
 	@echo "  make lint      - Run ESLint"
+	@echo "  make tsc       - TypeScript type check"
 	@echo "  make install   - Install dependencies"
 	@echo "  make clean     - Remove node_modules and build files"
 	@echo ""
@@ -31,6 +32,11 @@ preview:
 lint:
 	@echo "🔍 Running ESLint..."
 	pnpm lint
+
+# TypeScript type check
+tsc:
+	@echo "🔍 Running TypeScript type check..."
+	pnpm exec tsc --noEmit
 
 # Install dependencies
 install:

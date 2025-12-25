@@ -171,6 +171,42 @@ export const getAllCompetitions =
 	}
 
 /**
+ * Hole Tabelle/Standings einer Competition
+ * @param competitionCode - z.B. 'PL', 'BL1', 'PD', 'SA'
+ */
+export const getCompetitionStandings = async (competitionCode: string) => {
+	return fetchData(`/competitions/${competitionCode}/standings`)
+}
+
+/**
+ * Hole Matches/Spiele einer Competition
+ * @param competitionCode - z.B. 'PL', 'BL1', 'PD', 'SA'
+ * @param dateFrom - Start-Datum (YYYY-MM-DD)
+ * @param dateTo - End-Datum (YYYY-MM-DD)
+ */
+export const getCompetitionMatches = async (
+	competitionCode: string,
+	dateFrom?: string,
+	dateTo?: string
+) => {
+	let endpoint = `/competitions/${competitionCode}/matches`
+	const params = new URLSearchParams()
+
+	if (dateFrom) {
+		params.append('dateFrom', dateFrom)
+	}
+	if (dateTo) {
+		params.append('dateTo', dateTo)
+	}
+
+	if (params.toString()) {
+		endpoint += `?${params.toString()}`
+	}
+
+	return fetchData(endpoint)
+}
+
+/**
  * Test ob API funktioniert
  */
 export const testConnection = async (): Promise<boolean> => {
