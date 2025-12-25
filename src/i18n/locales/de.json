@@ -76,6 +76,44 @@
 			"api_test_title": "API Test",
 			"api_test_description": "Live-API-Daten testen"
 		}
+	},
+	"matches": {
+		"today_title": "Spiele heute",
+		"loading": "Lade Spiele...",
+		"error": "Spiele konnten nicht geladen werden",
+		"no_matches": "Keine Spiele heute",
+		"table": {
+			"time": "Zeit",
+			"home_team": "Heimteam",
+			"result": "Ergebnis",
+			"away_team": "Auswärtsteam",
+			"status": "Status"
+		},
+		"status": {
+			"scheduled": "Angesetzt",
+			"live": "LIVE",
+			"paused": "Halbzeit",
+			"finished": "Beendet",
+			"postponed": "Verschoben",
+			"cancelled": "Abgesagt"
+		}
+	},
+	"settings": {
+		"title": "Einstellungen",
+		"open": "Einstellungen öffnen",
+		"close": "Schließen",
+		"selected": "Ausgewählt",
+		"info": "Deine Einstellungen werden automatisch gespeichert",
+		"theme": {
+			"title": "Design-Modus",
+			"light": "Hell",
+			"dark": "Dunkel",
+			"system": "System",
+			"current": "Aktuell"
+		},
+		"language": {
+			"title": "Sprache"
+		}
 	}
 }
 

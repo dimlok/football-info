@@ -1,75 +1,66 @@
 @import 'tailwindcss';
 
-body {
-	@apply bg-zinc-950 text-zinc-100;
-}
-
+/**
+ * Custom CSS Variables für Light/Dark Mode
+ * Tailwind CSS v4 nutzt class-based dark mode
+ */
 :root {
-	font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-	line-height: 1.5;
+	/* Font */
+	font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue',
+		Arial, sans-serif;
+	line-height: 1.6;
 	font-weight: 400;
 
-	color-scheme: light dark;
-	color: rgba(255, 255, 255, 0.87);
-	background-color: #242424;
+	/* Colors - Light Mode */
+	--bg-primary: #ffffff;
+	--bg-secondary: #f9fafb;
+	--text-primary: #111827;
+	--text-secondary: #6b7280;
 
+	/* Typography */
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
 
-a {
-	font-weight: 500;
-	color: #646cff;
-	text-decoration: inherit;
-}
-a:hover {
-	color: #535bf2;
+/* Dark Mode - Applied via JS (class="dark" on <html>) */
+.dark {
+	color-scheme: dark;
+
+	/* Colors - Dark Mode */
+	--bg-primary: #0a0a0a;
+	--bg-secondary: #121212;
+	--text-primary: #f9fafb;
+	--text-secondary: #9ca3af;
 }
 
+/* Body Styles */
 body {
+	/* Light Mode - Helle Farben */
+	@apply bg-gray-50 text-gray-900;
 	margin: 0;
-	display: flex;
-	place-items: center;
-	min-width: 320px;
 	min-height: 100vh;
+	min-width: 320px;
 }
 
-h1 {
-	font-size: 3.2em;
-	line-height: 1.1;
+/* Dark Mode - Dunkle Farben */
+.dark body {
+	@apply bg-zinc-950 text-zinc-100;
 }
 
-button {
-	border-radius: 8px;
-	border: 1px solid transparent;
-	padding: 0.6em 1.2em;
-	font-size: 1em;
-	font-weight: 500;
-	font-family: inherit;
-	background-color: #1a1a1a;
-	cursor: pointer;
-	transition: border-color 0.25s;
-}
-button:hover {
-	border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-	outline: 4px auto -webkit-focus-ring-color;
+/* Remove default Vite styles that interfere */
+body {
+	display: block !important;
+	place-items: unset !important;
 }
 
-@media (prefers-color-scheme: light) {
-	:root {
-		color: #213547;
-		background-color: #ffffff;
-	}
-	a:hover {
-		color: #747bff;
-	}
-	button {
-		background-color: #f9f9f9;
-	}
+/* Smooth transitions for theme changes */
+*,
+*::before,
+*::after {
+	transition-property: background-color, border-color, color, fill, stroke;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transition-duration: 200ms;
 }
 

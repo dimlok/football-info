@@ -76,6 +76,44 @@
 			"api_test_title": "API Тест",
 			"api_test_description": "Проверить живые данные API"
 		}
+	},
+	"matches": {
+		"today_title": "Матчи сегодня",
+		"loading": "Загрузка матчей...",
+		"error": "Не удалось загрузить матчи",
+		"no_matches": "Сегодня матчей нет",
+		"table": {
+			"time": "Время",
+			"home_team": "Хозяева",
+			"result": "Счёт",
+			"away_team": "Гости",
+			"status": "Статус"
+		},
+		"status": {
+			"scheduled": "Запланирован",
+			"live": "ПРЯМОЙ ЭФИР",
+			"paused": "Перерыв",
+			"finished": "Завершён",
+			"postponed": "Отложен",
+			"cancelled": "Отменён"
+		}
+	},
+	"settings": {
+		"title": "Настройки",
+		"open": "Открыть настройки",
+		"close": "Закрыть",
+		"selected": "Выбрано",
+		"info": "Ваши настройки сохраняются автоматически",
+		"theme": {
+			"title": "Тема оформления",
+			"light": "Светлая",
+			"dark": "Тёмная",
+			"system": "Системная",
+			"current": "Текущая"
+		},
+		"language": {
+			"title": "Язык"
+		}
 	}
 }
 

@@ -1,6 +1,8 @@
 import { useQuery } from '@tanstack/react-query'
 import {
 	getAllCompetitions,
+	getCompetitionMatches,
+	getCompetitionStandings,
 	getCompetitionTeams,
 	getPerson,
 	getTeam,
@@ -11,10 +13,10 @@ import {
  * Custom Hooks für Football-Data.org mit TanStack Query Caching
  *
  * Vorteile:
- * - Automatisches Caching (5 Minuten)
+ * - Automatisches Caching (bis Browser-Close, Infinity staleTime/gcTime)
  * - Keine doppelten API-Anfragen
  * - Loading & Error States
- * - Automatisches Re-fetching
+ * - Daten werden nur EINMAL geholt, dann immer aus dem Cache
  */
 
 /**
@@ -57,7 +59,7 @@ export const useCompetitionTeams = (competitionCode: string) => {
 		queryKey: ['competition', competitionCode, 'teams'],
 		queryFn: () => getCompetitionTeams(competitionCode),
 		enabled: !!competitionCode,
-		staleTime: 30 * 60 * 1000, // 30 Minuten - Teams ändern sich selten
+		// staleTime: Infinity (from global config)
 	})
 }
 
@@ -71,7 +73,7 @@ export const useApiConnection = () => {
 	return useQuery({
 		queryKey: ['api', 'connection'],
 		queryFn: testConnection,
-		staleTime: 60 * 1000, // 1 Minute
+		// staleTime: Infinity (from global config)
 	})
 }
 
@@ -103,7 +105,44 @@ export const useAllCompetitions = () => {
 	return useQuery({
 		queryKey: ['competitions', 'all'],
 		queryFn: getAllCompetitions,
-		staleTime: 60 * 60 * 1000, // 1 Stunde - Competitions ändern sich selten
+		// staleTime: Infinity (from global config)
+	})
+}
+
+/**
+ * Hook: Hole Tabelle/Standings einer Competition
+ *
+ * @example
+ * const { data: standings } = useCompetitionStandings('PL')
+ */
+export const useCompetitionStandings = (competitionCode: string) => {
+	return useQuery({
+		queryKey: ['competition', competitionCode, 'standings'],
+		queryFn: () => getCompetitionStandings(competitionCode),
+		enabled: !!competitionCode,
+		// staleTime: Infinity (from global config)
+	})
+}
+
+/**
+ * Hook: Hole Matches/Spiele einer Competition
+ *
+ * @example
+ * const { data: matches } = useCompetitionMatches('PL', '2024-12-25', '2024-12-25')
+ * const { data: matches } = useCompetitionMatches('PL', '2024-12-25', '2024-12-25', { enabled: false })
+ */
+export const useCompetitionMatches = (
+	competitionCode: string,
+	dateFrom?: string,
+	dateTo?: string,
+	options?: { enabled?: boolean }
+) => {
+	return useQuery({
+		queryKey: ['competition', competitionCode, 'matches', dateFrom, dateTo],
+		queryFn: () => getCompetitionMatches(competitionCode, dateFrom, dateTo),
+		enabled:
+			options?.enabled !== undefined ? options.enabled : !!competitionCode,
+		// staleTime: Infinity (from global config)
 	})
 }
 
