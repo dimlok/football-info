@@ -1,5 +1,6 @@
 import type {
 	FootballDataCompetitionsResponse,
+	FootballDataCompetitionTeamsResponse,
 	FootballDataPerson,
 	FootballDataTeamResponse,
 } from './football_data.types'
@@ -158,8 +159,12 @@ export const getPerson = async (
  * - Ligue 1 (France): FL1 (2015)
  * - Champions League: CL (2001)
  */
-export const getCompetitionTeams = async (competitionCode: string) => {
-	return fetchData(`/competitions/${competitionCode}/teams`)
+export const getCompetitionTeams = async (
+	competitionCode: string
+): Promise<FootballDataCompetitionTeamsResponse> => {
+	return fetchData<FootballDataCompetitionTeamsResponse>(
+		`/competitions/${competitionCode}/teams`
+	)
 }
 
 /**

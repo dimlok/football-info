@@ -3,19 +3,17 @@
  * Docs: https://www.football-data.org/documentation/quickstart
  */
 
+// Spieler wie er von der API kommt (in squad)
 export type FootballDataPerson = {
 	id: number
 	name: string
-	firstName: string
-	lastName: string
+	position: string
 	dateOfBirth: string
 	nationality: string
-	position: string
-	shirtNumber: number | null
-	lastUpdated: string
 }
 
 export type FootballDataTeam = {
+	area?: FootballDataArea
 	id: number
 	name: string
 	shortName: string
@@ -26,6 +24,27 @@ export type FootballDataTeam = {
 	founded: number
 	clubColors: string
 	venue: string
+	runningCompetitions?: Array<{
+		id: number
+		name: string
+		code: string
+		type: string
+		emblem: string
+	}>
+	coach?: {
+		id: number
+		firstName?: string
+		lastName?: string
+		name: string
+		dateOfBirth: string
+		nationality: string
+		contract?: {
+			start: string
+			until: string
+		}
+	}
+	staff?: unknown[]
+	lastUpdated?: string
 }
 
 export type FootballDataSquad = {
@@ -84,4 +103,24 @@ export type FootballDataCompetitionsResponse = {
 }
 
 export type FootballDataTeamResponse = FootballDataTeam & FootballDataSquad
+
+export type FootballDataCompetitionTeamsResponse = {
+	count: number
+	competition: FootballDataCompetition
+	season: {
+		id: number
+		startDate: string
+		endDate: string
+		currentMatchday: number
+	}
+	teams: FootballDataTeam[]
+}
+
+// Extended Player Type mit Team-Informationen
+export type FootballDataPlayerWithTeam = FootballDataPerson & {
+	teamName: string
+	teamCrest: string
+	teamId: number
+	competitionCode?: string
+}
 

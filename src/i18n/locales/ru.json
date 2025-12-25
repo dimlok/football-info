@@ -21,6 +21,15 @@
 		"page_title": "Игроки",
 		"page_subtitle": "Узнайте о лучших футболистах",
 		"player_not_found": "Игрок не найден",
+		"loading": "Загрузка игроков...",
+		"error": "Ошибка загрузки игроков",
+		"no_players_found": "Игроки не найдены",
+		"card": {
+			"country": "Страна",
+			"age": "Возраст",
+			"years": "лет",
+			"club": "Клуб"
+		},
 		"positions": {
 			"goalkeeper": "Вратарь",
 			"defender": "Защитник",

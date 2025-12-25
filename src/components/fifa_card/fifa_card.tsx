@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils'
-import type { Player } from '@/types/player.types'
+import type { Player } from '@/o/player.types'
 import { Link } from 'react-router-dom'
 
 type FifaCardProps = {

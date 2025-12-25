@@ -21,6 +21,15 @@
 		"page_title": "Players",
 		"page_subtitle": "Discover the best football players",
 		"player_not_found": "Player not found",
+		"loading": "Loading players...",
+		"error": "Error loading players",
+		"no_players_found": "No players found",
+		"card": {
+			"country": "Country",
+			"age": "Age",
+			"years": "years",
+			"club": "Club"
+		},
 		"positions": {
 			"goalkeeper": "Goalkeeper",
 			"defender": "Defender",
