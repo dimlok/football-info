@@ -26,7 +26,7 @@ export type Player = {
 	nationality: string
 	age: number
 	teamId: string
-	photo: string
+	// photo: string
 	number: number
 	stats: PlayerStats
 	// FIFA Card specific

@@ -1,3 +1,8 @@
+import {
+	getCompetitionPlayers,
+	getTeamSquad,
+	getTopPlayers,
+} from '@/services/football_data/football_data_players.service'
 import { useQuery } from '@tanstack/react-query'
 import {
 	getAllCompetitions,
@@ -142,6 +147,54 @@ export const useCompetitionMatches = (
 		queryFn: () => getCompetitionMatches(competitionCode, dateFrom, dateTo),
 		enabled:
 			options?.enabled !== undefined ? options.enabled : !!competitionCode,
+		// staleTime: Infinity (from global config)
+	})
+}
+
+/**
+ * Hook: Hole alle Spieler einer Liga
+ *
+ * @example
+ * const { data: players } = useCompetitionPlayers('PL') // Premier League Players
+ */
+export const useCompetitionPlayers = (competitionCode: string) => {
+	return useQuery({
+		queryKey: ['competition', competitionCode, 'players'],
+		queryFn: () => getCompetitionPlayers(competitionCode),
+		enabled: !!competitionCode,
+		// staleTime: Infinity (from global config)
+	})
+}
+
+/**
+ * Hook: Hole Top-Spieler von mehreren Ligen
+ *
+ * @example
+ * const { data: players } = useTopPlayers(['PL', 'BL1', 'PD'], 20)
+ */
+export const useTopPlayers = (
+	competitionCodes: string[],
+	playersPerLeague = 10
+) => {
+	return useQuery({
+		queryKey: ['top-players', competitionCodes, playersPerLeague],
+		queryFn: () => getTopPlayers(competitionCodes, playersPerLeague),
+		enabled: competitionCodes.length > 0,
+		// staleTime: Infinity (from global config)
+	})
+}
+
+/**
+ * Hook: Hole Squad eines Teams
+ *
+ * @example
+ * const { data: squad } = useTeamSquad(5) // Bayern München Squad
+ */
+export const useTeamSquad = (teamId: number) => {
+	return useQuery({
+		queryKey: ['team', teamId, 'squad'],
+		queryFn: () => getTeamSquad(teamId),
+		enabled: !!teamId,
 		// staleTime: Infinity (from global config)
 	})
 }

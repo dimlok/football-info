@@ -1,6 +1,9 @@
 import type {
 	FootballDataCompetitionsResponse,
+	FootballDataCompetitionTeamsResponse,
+	FootballDataMatchesResponse,
 	FootballDataPerson,
+	FootballDataStandingsResponse,
 	FootballDataTeamResponse,
 } from './football_data.types'
 
@@ -158,8 +161,12 @@ export const getPerson = async (
  * - Ligue 1 (France): FL1 (2015)
  * - Champions League: CL (2001)
  */
-export const getCompetitionTeams = async (competitionCode: string) => {
-	return fetchData(`/competitions/${competitionCode}/teams`)
+export const getCompetitionTeams = async (
+	competitionCode: string
+): Promise<FootballDataCompetitionTeamsResponse> => {
+	return fetchData<FootballDataCompetitionTeamsResponse>(
+		`/competitions/${competitionCode}/teams`
+	)
 }
 
 /**
@@ -174,8 +181,12 @@ export const getAllCompetitions =
  * Hole Tabelle/Standings einer Competition
  * @param competitionCode - z.B. 'PL', 'BL1', 'PD', 'SA'
  */
-export const getCompetitionStandings = async (competitionCode: string) => {
-	return fetchData(`/competitions/${competitionCode}/standings`)
+export const getCompetitionStandings = async (
+	competitionCode: string
+): Promise<FootballDataStandingsResponse> => {
+	return fetchData<FootballDataStandingsResponse>(
+		`/competitions/${competitionCode}/standings`
+	)
 }
 
 /**
@@ -188,7 +199,7 @@ export const getCompetitionMatches = async (
 	competitionCode: string,
 	dateFrom?: string,
 	dateTo?: string
-) => {
+): Promise<FootballDataMatchesResponse> => {
 	let endpoint = `/competitions/${competitionCode}/matches`
 	const params = new URLSearchParams()
 
@@ -203,7 +214,7 @@ export const getCompetitionMatches = async (
 		endpoint += `?${params.toString()}`
 	}
 
-	return fetchData(endpoint)
+	return fetchData<FootballDataMatchesResponse>(endpoint)
 }
 
 /**

@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next'
 
 type TopLeaguesSectionProps = {
 	leagues: FootballDataCompetition[]
-	onLeagueClick: (competition: FootballDataCompetition) => void
+	onLeagueClick: (leagueCode: string) => void
 }
 
 /**
@@ -32,7 +32,7 @@ function TopLeaguesSection({ leagues, onLeagueClick }: TopLeaguesSectionProps) {
 						key={league.id}
 						competition={league}
 						featured
-						onClick={() => onLeagueClick(league)}
+						onClick={() => onLeagueClick(league.code)}
 					/>
 				))}
 			</div>

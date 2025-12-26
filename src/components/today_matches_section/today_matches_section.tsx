@@ -1,3 +1,4 @@
+import MatchesShimmer from '@/routes/league/components/matches_shimmer'
 import { useCompetitionMatches } from '@/services/football_data/football_data.hooks'
 import type { FootballDataCompetition } from '@/services/football_data/football_data.types'
 import { memo, useState } from 'react'
@@ -147,11 +148,7 @@ function LeagueMatchesAccordion({
 			{isExpanded && (
 				<div className='border-t border-gray-200 p-4 sm:p-6 dark:border-zinc-800'>
 					{/* Loading */}
-					{isLoading && (
-						<div className='py-8 text-center text-sm text-gray-600 dark:text-zinc-400'>
-							{t('matches.loading')}
-						</div>
-					)}
+					{isLoading && <MatchesShimmer />}
 
 					{/* Error */}
 					{error && (
@@ -273,8 +270,8 @@ function MatchRow({ match }: MatchRowProps) {
 			<td className='py-3 pr-2 sm:pr-4'>
 				<div className='flex items-center gap-2'>
 					<img
-						src={match.homeTeam.crest}
-						alt={match.homeTeam.name}
+						src={match.homeTeam.crest || ''}
+						alt={match.homeTeam.name || ''}
 						className='h-5 w-5 object-contain sm:h-6 sm:w-6'
 						onError={e => {
 							e.currentTarget.style.display = 'none'
@@ -303,8 +300,8 @@ function MatchRow({ match }: MatchRowProps) {
 			<td className='py-3 pl-2 sm:pl-4'>
 				<div className='flex items-center gap-2'>
 					<img
-						src={match.awayTeam.crest}
-						alt={match.awayTeam.name}
+						src={match.awayTeam.crest || ''}
+						alt={match.awayTeam.name || ''}
 						className='h-5 w-5 object-contain sm:h-6 sm:w-6'
 						onError={e => {
 							e.currentTarget.style.display = 'none'

@@ -21,6 +21,15 @@
 		"page_title": "Spieler",
 		"page_subtitle": "Entdecke die besten Fußballspieler",
 		"player_not_found": "Spieler nicht gefunden",
+		"loading": "Lade Spieler...",
+		"error": "Fehler beim Laden der Spieler",
+		"no_players_found": "Keine Spieler gefunden",
+		"card": {
+			"country": "Land",
+			"age": "Alter",
+			"years": "Jahre",
+			"club": "Verein"
+		},
 		"positions": {
 			"goalkeeper": "Torwart",
 			"defender": "Verteidiger",
@@ -65,9 +74,23 @@
 		"section_all_leagues": "🏆 Alle Ligen",
 		"section_cups": "🏅 Cups & Turniere",
 		"season": "Saison {{year}}/{{nextYear}}",
+		"season_label": "Saison",
 		"matchday": "Spieltag {{matchday}}",
 		"show_more": "Mehr anzeigen",
 		"show_less": "Weniger anzeigen",
+		"season_progress": "{{progress}}% der Saison abgeschlossen",
+		"timeline": {
+			"start": "Start",
+			"today": "Heute",
+			"end": "Ende"
+		},
+		"tabs": {
+			"summary": "ZUSAMMENFASSUNG",
+			"results": "ERGEBNISSE",
+			"fixtures": "BEGEGNUNGEN",
+			"table": "TABELLE",
+			"archive": "ARCHIV"
+		},
 		"quick_links": {
 			"players_title": "Spieler",
 			"players_description": "Alle Fußballspieler durchsuchen",
@@ -82,6 +105,11 @@
 		"loading": "Lade Spiele...",
 		"error": "Spiele konnten nicht geladen werden",
 		"no_matches": "Keine Spiele heute",
+		"no_finished_matches": "Keine abgeschlossenen Spiele gefunden",
+		"no_upcoming_matches": "Keine anstehenden Spiele gefunden",
+		"results_title": "Ergebnisse",
+		"fixtures_title": "Anstehende Begegnungen",
+		"matchday": "{{number}}. Spieltag",
 		"table": {
 			"time": "Zeit",
 			"home_team": "Heimteam",

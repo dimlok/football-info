@@ -1,5 +1,4 @@
 import CupsSection from '@/components/cups_section/cups_section'
-import LeagueDrawer from '@/components/league_drawer/league_drawer'
 import LeaguesSection from '@/components/leagues_section/leagues_section'
 import Navigation from '@/components/navigation/navigation'
 import QuickLinks from '@/components/quick_links/quick_links'
@@ -11,9 +10,8 @@ import {
 	getTopEuropeanLeagues,
 } from '@/mocks/competitions.mock'
 import { useAllCompetitions } from '@/services/football_data/football_data.hooks'
-import type { FootballDataCompetition } from '@/services/football_data/football_data.types'
-import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useNavigate } from 'react-router-dom'
 
 /**
  * 🏆 Home Page mit Ligen-Übersicht
@@ -24,12 +22,8 @@ import { useTranslation } from 'react-i18next'
  */
 export default function HomePage() {
 	const { t } = useTranslation()
+	const navigate = useNavigate()
 	const { data, isLoading, error } = useAllCompetitions()
-
-	// Nur Drawer State - globaler State der alle Components betrifft
-	const [selectedCompetition, setSelectedCompetition] =
-		useState<FootballDataCompetition | null>(null)
-	const [isDrawerOpen, setIsDrawerOpen] = useState(false)
 
 	// Fallback zu Mock Daten wenn API nicht verfügbar
 	const allCompetitions = data?.competitions || getCompetitionsByType('LEAGUE')
@@ -37,15 +31,9 @@ export default function HomePage() {
 	const cups = allCompetitions.filter(c => c.type === 'CUP')
 	const topLeagues = getTopEuropeanLeagues()
 
-	// Handler für Liga-Klick
-	const handleLeagueClick = (competition: FootballDataCompetition) => {
-		setSelectedCompetition(competition)
-		setIsDrawerOpen(true)
-	}
-
-	const closeDrawer = () => {
-		setIsDrawerOpen(false)
-		setSelectedCompetition(null)
+	// Handler für Liga-Klick - navigiert zur Liga-Seite
+	const handleLeagueClick = (leagueCode: string) => {
+		navigate(`/league/${leagueCode}`)
 	}
 
 	if (isLoading) {
@@ -114,12 +102,12 @@ export default function HomePage() {
 				</div>
 			</div>
 
-			{/* League Drawer */}
+			{/* League Drawer
 			<LeagueDrawer
 				competition={selectedCompetition}
 				isOpen={isDrawerOpen}
 				onClose={closeDrawer}
-			/>
+			/> */}
 
 			{/* Settings Modal */}
 			<SettingsModal />

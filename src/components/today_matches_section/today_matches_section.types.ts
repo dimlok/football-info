@@ -1,33 +1,6 @@
-export type Match = {
-	id: number
-	utcDate: string
-	status: string
-	matchday: number
-	homeTeam: {
-		id: number
-		name: string
-		shortName: string
-		crest: string
-	}
-	awayTeam: {
-		id: number
-		name: string
-		shortName: string
-		crest: string
-	}
-	score: {
-		fullTime: {
-			home: number | null
-			away: number | null
-		}
-		halfTime: {
-			home: number | null
-			away: number | null
-		}
-	}
-}
-
-export type MatchesResponse = {
-	matches: Match[]
-}
+// Re-export types from global football_data types
+export type {
+	FootballDataMatch as Match,
+	FootballDataMatchesResponse as MatchesResponse,
+} from '@/services/football_data/football_data.types'
 

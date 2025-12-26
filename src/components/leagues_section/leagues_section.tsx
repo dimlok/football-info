@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next'
 
 type LeaguesSectionProps = {
 	leagues: FootballDataCompetition[]
-	onLeagueClick?: (competition: FootballDataCompetition) => void
+	onLeagueClick?: (leagueCode: string) => void
 }
 
 /**
@@ -35,7 +35,9 @@ function LeaguesSection({ leagues, onLeagueClick }: LeaguesSectionProps) {
 					<LeagueCard
 						key={league.id}
 						competition={league}
-						onClick={onLeagueClick ? () => onLeagueClick(league) : undefined}
+						onClick={
+							onLeagueClick ? () => onLeagueClick(league.code) : undefined
+						}
 					/>
 				))}
 			</div>

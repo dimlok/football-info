@@ -21,6 +21,15 @@
 		"page_title": "Players",
 		"page_subtitle": "Discover the best football players",
 		"player_not_found": "Player not found",
+		"loading": "Loading players...",
+		"error": "Error loading players",
+		"no_players_found": "No players found",
+		"card": {
+			"country": "Country",
+			"age": "Age",
+			"years": "years",
+			"club": "Club"
+		},
 		"positions": {
 			"goalkeeper": "Goalkeeper",
 			"defender": "Defender",
@@ -65,9 +74,23 @@
 		"section_all_leagues": "🏆 All Leagues",
 		"section_cups": "🏅 Cups & Tournaments",
 		"season": "Season {{year}}/{{nextYear}}",
+		"season_label": "Season",
 		"matchday": "Matchday {{matchday}}",
 		"show_more": "Show more",
 		"show_less": "Show less",
+		"season_progress": "{{progress}}% of season completed",
+		"timeline": {
+			"start": "Start",
+			"today": "Today",
+			"end": "End"
+		},
+		"tabs": {
+			"summary": "SUMMARY",
+			"results": "RESULTS",
+			"fixtures": "FIXTURES",
+			"table": "TABLE",
+			"archive": "ARCHIVE"
+		},
 		"quick_links": {
 			"players_title": "Players",
 			"players_description": "Browse all football players",
@@ -82,6 +105,11 @@
 		"loading": "Loading matches...",
 		"error": "Could not load matches",
 		"no_matches": "No matches today",
+		"no_finished_matches": "No finished matches found",
+		"no_upcoming_matches": "No upcoming matches found",
+		"results_title": "Results",
+		"fixtures_title": "Upcoming Matches",
+		"matchday": "Matchday {{number}}",
 		"table": {
 			"time": "Time",
 			"home_team": "Home Team",
