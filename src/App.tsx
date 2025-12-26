@@ -3,6 +3,7 @@ import './App.css'
 import ApiExample from './components/examples/api_example'
 import { apiExampleLoader } from './components/examples/api_example.loader'
 import CompetitionsPage from './routes/competitions/route'
+import LeaguePage from './routes/league/$code'
 import PlayerDetailPage, {
 	loader as playerDetailLoader,
 } from './routes/players/$id'
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
 	{
 		path: '/competitions',
 		element: <CompetitionsPage />,
+	},
+	{
+		path: '/league/:code',
+		element: <LeaguePage />,
 	},
 	{
 		path: '/players',

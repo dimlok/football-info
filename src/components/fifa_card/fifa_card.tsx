@@ -32,7 +32,7 @@ const getPositionShort = (position: Player['position']) => {
 			return 'FWD'
 	}
 }
-
+//TODO: check if this is correct use or removed
 export default function FifaCard({ player, teamName }: FifaCardProps) {
 	const cardGradient = getCardGradient(player.cardType)
 	const positionShort = getPositionShort(player.position)

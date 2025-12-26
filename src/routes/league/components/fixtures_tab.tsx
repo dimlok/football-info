@@ -1,3 +1,4 @@
+import MatchesShimmer from '@/routes/league/components/matches_shimmer'
 import type { FootballDataMatch } from '@/services/football_data/football_data.types'
 import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -16,11 +17,7 @@ function FixturesTab({ matches, isLoading }: FixturesTabProps) {
 			<h2 className='mb-6 text-xl font-bold text-gray-900 dark:text-white'>
 				{t('matches.fixtures_title')}
 			</h2>
-			{isLoading && (
-				<div className='text-center text-gray-600 dark:text-zinc-400'>
-					{t('matches.loading')}
-				</div>
-			)}
+			{isLoading && <MatchesShimmer />}
 			{upcomingMatches.length > 0 && (
 				<div className='space-y-4'>
 					{upcomingMatches.map(match => (
