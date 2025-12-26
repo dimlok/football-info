@@ -1,6 +1,7 @@
+import MatchDrawer from '@/components/match_drawer/match_drawer'
 import MatchesShimmer from '@/routes/league/components/matches_shimmer'
 import type { FootballDataMatch } from '@/services/football_data/football_data.types'
-import { memo, useMemo } from 'react'
+import { memo, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 type ResultsTabProps = {
@@ -10,6 +11,25 @@ type ResultsTabProps = {
 
 const ResultsTab = ({ matches, isLoading }: ResultsTabProps) => {
 	const { t, i18n } = useTranslation()
+	const [selectedMatch, setSelectedMatch] = useState<FootballDataMatch | null>(
+		null
+	)
+	const [isDrawerOpen, setIsDrawerOpen] = useState(false)
+
+	// Handle match click to open drawer
+	const handleMatchClick = (match: FootballDataMatch) => {
+		setSelectedMatch(match)
+		setIsDrawerOpen(true)
+	}
+
+	// Handle drawer close
+	const handleCloseDrawer = () => {
+		setIsDrawerOpen(false)
+		// Delay clearing selectedMatch to allow for smooth close animation
+		setTimeout(() => {
+			setSelectedMatch(null)
+		}, 300)
+	}
 
 	// Group and sort matches by matchday (descending: 16, 15, 14...)
 	const matchesByMatchday = useMemo(() => {
@@ -77,9 +97,12 @@ const ResultsTab = ({ matches, isLoading }: ResultsTabProps) => {
 							</h3>
 							<div className='space-y-4'>
 								{dayMatches.map(match => (
-									<div
+									<button
 										key={match.id}
-										className='flex items-center justify-between rounded-xl border border-gray-200 bg-white p-4 dark:border-zinc-800 dark:bg-zinc-900'
+										onClick={() => {
+											handleMatchClick(match)
+										}}
+										className='flex w-full cursor-pointer items-center justify-between rounded-xl border border-gray-200 bg-white p-4 transition-all hover:border-blue-300 hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-blue-700'
 									>
 										<div className='flex flex-1 items-center gap-2 text-left'>
 											<div className='text-sm font-medium text-gray-900 dark:text-white'>
@@ -107,7 +130,7 @@ const ResultsTab = ({ matches, isLoading }: ResultsTabProps) => {
 												{match.awayTeam.name}
 											</div>
 										</div>
-									</div>
+									</button>
 								))}
 							</div>
 						</div>
@@ -120,6 +143,13 @@ const ResultsTab = ({ matches, isLoading }: ResultsTabProps) => {
 					{t('matches.no_finished_matches')}
 				</p>
 			)}
+
+			{/* Match Details Drawer */}
+			<MatchDrawer
+				match={selectedMatch}
+				isOpen={isDrawerOpen}
+				onClose={handleCloseDrawer}
+			/>
 		</div>
 	)
 }
